@@ -1,0 +1,38 @@
+//A car with a purchase price of £15000 is bought on hire purchase at an interest rate of 
+//5% over 5 years.  Assuming the yearly interest is calculated at the beginning of each 
+//year on the amount owed at that point, calculate and output both the total interest and 
+//the total amount repaid by the customer.
+
+package introexercises;
+
+public class Ex8 {
+
+	public static void main(String[] args) {
+
+		//declare variables
+		
+		int int1 = 0, int2 = 0, int3 = 0, int4 = 0, int5 = 0; //interest for each of the five years
+		final int orgPrice = 15000; //car original cost
+		int totalInt = 0, totalCost = 0; //the total interest and total cost variables 
+		
+		//inputs
+		
+		//process
+		
+		int1 = orgPrice * 5 / 100;  //interest for year 1 is original price, times 5, divided by 100
+		int2 = (orgPrice / 5 * 4) * 5 / 100; //interest for year 2 is original price, divided by (5 times 4),  then multiplied by (5/100) 
+		int3 = (orgPrice / 5 * 3) * 5 / 100; //interest for year 3 is original price, divided by (5 times 3), then multiplied by (5/100)
+		int4 = (orgPrice / 5 * 2) * 5 / 100; //interest for year 4 is original price, divided by (5 times 2), then multiplied by (5/100)
+		int5 = (orgPrice / 5) * 5 / 100; //then finally, original price, divided by 5, multiplied by (5/100)  ALL INTERESTS for each year are separately worked out now 
+
+		totalInt = int1  + int2 + int3 + int4 + int5; //so we just add them up for total interest
+		totalCost = totalInt + orgPrice; //then total cost is both together with original price 
+				
+		//output
+		
+		System.out.print("The total interest paid is: " + totalInt + "\n\n"); //output for it 
+		System.out.print("The total amount repayable is: " + totalCost); //and total amount, simple. 
+		
+	}
+
+}
