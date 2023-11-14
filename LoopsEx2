@@ -1,0 +1,24 @@
+//UNCONDITIONAL LOOPS Ex2
+//Q: Output all the odd numbers between 1 and 1000
+
+package loopExercises;
+
+public class Ex2 {
+
+	public static void main(String[] args) {
+
+		//declare variables
+		{
+		int number = 1000; //number of times
+		System.out.print("List of odd numbers from 0 to " +number+": \n");
+		
+		for (int i=1; i<=number; i++) //unconditional loop (based on new 'i' at 1; while i is less than number value; increment by 1
+		{ //curly brackets WITHIN the loop. Only inside this can access 'i' 
+			if(i%2!=0) 
+			{
+				System.out.println( i + " "); //only prints these odd numbers stored in 'i' 
+			}
+		}
+	}
+	}
+}
