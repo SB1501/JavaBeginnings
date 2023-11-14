@@ -1,0 +1,36 @@
+//UNCONDITIONAL LOOPS Ex7
+//Q. Output the 4 times tables
+
+package loopExercises;
+
+public class Ex7 {
+
+	public static void main(String[] args) {
+
+		//declare variables
+		
+		int nIntegerLimit = 12; //how long should this go on for? 12 hard wired as question didn't ask for input 
+		int multiplyer = 4; //four times table specified in Q 
+		int result = 0; //variable for storing result each time
+		
+		
+		for (int i = 1;i<=nIntegerLimit;i++) //defining i for loop, as one; for as many times as nIntegerLimit; increment by 1 
+		{
+			result = multiplyer * i; //take our multiplyer and multiply it by i (each iteration) each time 
+			System.out.println(i + " * " +multiplyer+ " = " + result); //output result as iteration number + multiplyer + result 
+		}
+		
+		//inputs
+		
+		
+		//process
+		
+		
+		//outputs
+		
+		
+		
+
+	}
+
+}
