@@ -1,0 +1,94 @@
+//8.	Write a program that displays a menu of five items in a chip shop as follows:
+//Cheeseburger	£4.99
+//Pepsi		£2.00
+//Chips		£2.50
+//Mexican Beef	£5.00
+//Pizza		£6.50
+//Prompt the user to choose an item using the numbers (1, 2, 3, 4 or 5) that corresponds 
+//to an item.  After the user makes the selection, display the total owed and ask the user 
+//to input the amount of cash tendered to pay for the item.  This will be in note format 
+//and can be either £5, £10 or £20.  Display the change payable to the user.
+
+
+package ifExercises;
+
+import java.util.Scanner; //needed for scanner below 
+
+public class Ex8 extends Ex7 {
+
+	public static void main(String[] args) {
+
+		Scanner key = new Scanner(System.in); //defining scanner called key
+		
+		//declare variables
+		
+		double price = 0.0;
+		double paymentNote = 0.0;
+		int choice = 0;
+		boolean noteValid = false;
+		double changeDue = 0.0;
+		
+		//inputs
+		
+		System.out.println("\t \n Please make a selection: \n \n \t [1] Cheeseburger: £4.99 \n \t [2] Pepsi £2.00 \n \t [3] Chips £2.50 \n \t [4] Mexican Beef £5.00 \n \t [5] Pizza £6.50 \n");
+		choice = key.nextInt(); //expecting keyboard input 
+
+		
+		//process and output 1
+		
+		if (choice==1) //if value for EACH choice, only one may be executed 
+		{
+			price = 4.99; //if this one, assigns price for menu item 1 
+			System.out.println("You have ordered a Cheeseburger. Total due: £"+price+"0 GBP."); //says this 
+
+		} //close brackets from first condition () and statement block {}
+		else if (choice==2) //repeats for next menu item 
+		{
+			price = 2.00; //assigns price 
+			System.out.println("You have ordered a Pepsi. Total due: £"+price+"0 GBP."); //says this 
+
+		} //each else if has its own (condition) THEN curly bracket {statements}, ending ; inside 
+		else if (choice ==3)
+		{
+			price = 2.50;
+			System.out.println("You have ordered Chips. Total due: £"+price+"0 GBP.");
+
+		}
+		else if (choice ==4)
+		{
+			price = 5.00;
+			System.out.println("You have ordered Mexican Beef. Total due: £"+price+"0 GBP.");
+
+		}
+		else if (choice ==5)
+		{
+			price = 6.50;
+			System.out.println("You have ordered a Pizza. Total due: £"+price+"0 GBP.");
+		}
+		
+		
+		//inputs 2 for next part of process after choice, to choose payment 
+		
+		System.out.println("\t \n Please choose a payment note: £5, £10 or £20 accepted. Enter amount figure.");
+		paymentNote = key.nextDouble(); //expects an input for payment note 
+		
+		if (paymentNote ==5 || paymentNote ==10 || paymentNote ==20) //specifies 3 valid values
+		
+		{
+			noteValid = true; //only if one of above is true is it valid, otherwise this bit not done 
+			changeDue = (paymentNote - price); //takes that note value from price defined above 
+			System.out.println("\t Payment valid. Your change is: "+changeDue+"0 GBP."); //prints change due 
+					
+		}
+		
+		
+		//outputs 2
+		
+		if (noteValid ==false) //if above non valid entry, then noteValid is false as before, and this printed 
+		System.out.println("Payment Note not valid. Please try again.");
+		
+		key.close();
+		
+	}
+
+}
