@@ -1,0 +1,70 @@
+//Write a program that takes two integers and a char representing one of 
+//the following mathematical operations: +, -, /, or *. Use a switch statement 
+//to perform the appropriate mathematical operation on the integers and output 
+//the result. If an invalid operator is input, the program should print “Error” 
+//and then end.
+
+package switchExercises;
+
+import java.util.Scanner; //for Scanner 
+
+public class ex5 {
+
+	public static void main(String[] args) {
+
+		Scanner key = new Scanner(System.in); //new scanner called key 
+		
+		//declare variables
+		
+		int integerOne = 0; //declared and initialised
+		int integerTwo = 0;
+		char sign = ' '; //char for single character instead of number
+		double result = 0.0; 
+		boolean valid = true; //for later on to specify if non valid character input for calculation type 
+		
+		//inputs
+		
+		System.out.println("Please enter the first number for calculation: ");
+		integerOne = key.nextInt();
+
+		System.out.println("Please enter the second number for calculation: ");
+		integerTwo = key.nextInt();
+		
+		System.out.println("Please choose a calculation type by entering its sign: \n \t Add (+) \\n \\t  Subtract (-) \\n \\t Divide (/) \\n \\t Multiply (*) ");
+		sign = key.next().charAt(0); // there is no nextChar 
+		
+		//process
+		
+		switch (sign) //switch based on the sign of calculation 
+			{
+			case '+': //matches the sign of the input char sign.
+				result = (integerOne + integerTwo); //what happens if this is the true case
+				break; //to not continue if that one is true
+			case '-':
+				result = (integerOne - integerTwo);
+				break;
+			case '/':
+				result = (integerOne / integerTwo);
+				break;
+			case '*':
+				result = (integerOne * integerTwo);
+				break;
+			default: //what happens if anything else / invalid is entered in 
+				valid = false; //if that happens then 
+				break;
+			}
+		if (valid) // this means if valid is true, which it is by default and still will be if nothing triggers it in the default case above.  then it will print a calculation, but if not, will go to the else and print an error message
+		
+			System.out.println(integerOne + " " + sign + " " + integerTwo + " = "+ result);
+			else 
+				System.out.println("Error.");
+			
+		
+		
+		//outputs
+		
+		key.close(); //at the end of main
+
+	}
+
+}
