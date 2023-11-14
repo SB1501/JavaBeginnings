@@ -22,8 +22,7 @@ public class Ex3 {
 		
 		//declare variables
 		
-		double studentHighSchoolGrade = 0; //declared and initialised upfront
-		double admissionTestScore = 0;
+		double admissionTestScore = 0; //declared and initialised upfront
 		double gradePointAverage = 0;
 		
 		
