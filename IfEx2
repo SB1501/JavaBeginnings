@@ -25,14 +25,10 @@ public class Ex2 extends Ex1 {
 		
 		double tablePrice = 0.0; //declared and initialised with data from Q or 0
 		int tableChosen = 0;
-		int typePine = 1;
-		int typeOak = 2;
-		int typeMahog = 3;
+
 		double pricePine = 300;
 		double priceOak = 225;
 		double priceMahog = 310;
-		int sizeLarge = 1;
-		int sizeSmall = 2;
 		int sizeChosen = 0;
 		int largeCharge = 35;
 		
