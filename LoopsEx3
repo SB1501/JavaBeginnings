@@ -1,0 +1,22 @@
+//UNCONDITIONAL LOOPS Ex3
+//Q: Output to screen the multiples of 3 between 1 and 30.
+
+package loopExercises;
+
+public class Ex3 {
+
+	public static void main(String[] args) {
+		
+		int number = 30; //number of times we want the loop to do it 
+		
+		for (int i = 0; i <=number; i++) //loop, integer i; do while i is less than or equal to number value, then increment 1.
+										// whole list 1-30 is created, but the if below narrows it down by criteria
+		{
+			if (i % 3 == 0)
+			System.out.println(i); //can only access 'i' inside this curly bracket block
+		}
+			
+			
+	}
+
+}
