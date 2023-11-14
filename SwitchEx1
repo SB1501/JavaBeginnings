@@ -1,0 +1,60 @@
+//Write a program that creates a menu for the user, allowing them to 
+//select from 6 options (with option 6 being Exit).  The program should output 
+//the option selected by the user.  If an invalid option has been input, the 
+//program should output an error message.  
+
+package switchExercises;
+
+import java.util.Scanner; //for Scanner below 
+
+public class ex1 {
+
+	public static void main(String[] args) {
+
+		Scanner key = new Scanner(System.in); //new Scanner called key
+		
+		//declare variables
+		
+		int menuOption = 0; //declared and initialised upfront
+		
+		
+		//inputs
+		
+		System.out.println("Please choose an option from the menu below: \t\n 1. Pre-Wash \t\n 2. Wheel Wash \t\n 3. Shampoo Wash \t\n 4. Hot Wax \t\n 5. Super-Dry \t\n 6. Exit \t\n");
+		menuOption = key.nextInt(); //gets input for menuOption
+		
+		//process and output 
+		
+		switch (menuOption) //this is the variable that above, will be used to pick a case 
+		{
+		case 1: // first case, number above from menu 
+			System.out.println("You have selected Pre-Wash");
+			break;	//stops here once executed above statement(s) then goes to what follows switch 
+		case 2:
+			System.out.println("You have selected Wheel Wash");
+			break;
+		case 3:
+			System.out.println("You have selected Shampoo Wash");
+			break;
+		case 4:
+			System.out.println("You have selected Hot Wax");
+			break;
+		case 5:
+			System.out.println("You have selected Super-Dry");
+			break;
+		case 6:
+			System.out.println("You have chosen to EXIT Car Wash");
+		
+		default: //if nothing valid or matching any case above is input 
+			System.out.println("You did not make a valid selection");
+		
+		
+		}
+		
+		//outputs
+				
+		key.close(); //at the end of main
+		
+	}
+
+}
