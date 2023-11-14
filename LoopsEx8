@@ -1,0 +1,36 @@
+//UNCONDITIONAL LOOPS Ex8
+//Q. Output times tables user inputs
+
+package loopExercises;
+
+import java.util.Scanner;
+
+public class Ex8 {
+
+	public static void main(String[] args) {
+
+		//declare variables
+		
+		Scanner key = new Scanner(System.in);
+			
+		int nIntegerLimit = 0; //how long should this go on for? input gotten below
+		int multiplyer = 0; //user to specify times table to do input gottne below
+		int result = 0; //variable for storing result each time
+
+		//inputs
+		System.out.println("Please enter a number for the times tables multiplier: ");
+		multiplyer = key.nextInt(); //input for multiplyer
+
+		System.out.println("Please enter how many sums you want to output: ");
+		nIntegerLimit = key.nextInt(); //input for amount of sums to print
+
+		//process and outputs
+		for (int i = 1;i<=nIntegerLimit;i++) //defining i for loop, as one; for as many times as nIntegerLimit; increment by 1 
+		{
+			result = multiplyer * i; //take our multiplyer and multiply it by i (each iteration) each time 
+			System.out.println(i + " * " +multiplyer+ " = " + result); //output result as iteration number + multiplyer + result 
+		}
+		key.close(); //at the end of main
+	}
+
+}
