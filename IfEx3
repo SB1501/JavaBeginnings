@@ -1,0 +1,59 @@
+//Write a program for a college's admission office. Prompt the user for a student's 
+//numeric high school grade point average (eg 3.2) and an admission test score from 0 
+//to 100. Print the message "Accept" if the student has any of the following:
+//•	A grade point average of 3.0 or above and an admission test score of at least 60
+//•	A grade point average below 3.0 and an admission test score of at least 80
+//If the student does not meet either of the qualification criteria, print "Reject".
+//Modify the program above so that if a student enters a grade point average under 0 or
+//over 4.0 or a test score under 0 or over 100, an error message appears instead of the 
+//"Accept" or "Reject" message.
+
+
+package ifExercises;
+
+import java.util.Scanner; //needed for scanner below 
+
+public class Ex3 {
+
+	public static void main(String[] args) {
+		
+		Scanner key = new Scanner(System.in); //defines new scanner called key 
+		
+		
+		//declare variables
+		
+		double studentHighSchoolGrade = 0; //declared and initialised upfront
+		double admissionTestScore = 0;
+		double gradePointAverage = 0;
+		
+		
+		//inputs
+		
+		System.out.println("\n\t Please enter your High School Grade Point Average: ");
+		gradePointAverage = key.nextDouble(); //expects key input
+		
+		System.out.println("\n\t Please enter your Admission Test Score (0-100): ");
+		admissionTestScore = key.nextDouble();
+		
+		
+		//process
+		
+			if ((gradePointAverage <0.0 || gradePointAverage >4.0 || admissionTestScore<0 || admissionTestScore >180))				//checks for invalid values first, if true, says that. 
+			{
+				System.out.println("Invalid Values!");
+			}
+			else if ((gradePointAverage >=3.0 && admissionTestScore >=60) || (gradePointAverage<=3.0 && admissionTestScore >=80)) 	//else if checks from two acceptance criteria
+			{
+			System.out.println("Accept");
+			}
+			else if ((gradePointAverage<3.0 && admissionTestScore<60) || (gradePointAverage>3.0 && admissionTestScore <80))			//if they did not meet acceptance criteria, checks if they pass failure criteria 
+			{
+			System.out.println("Reject");
+			}
+			
+			key.close();
+		}
+		//outputs
+	}
+
+
