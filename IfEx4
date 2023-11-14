@@ -1,0 +1,55 @@
+//4.	Write an application that asks a user to enter an IQ score. If the score is a number 
+//less than 0 or greater than 200, issue error message; otherwise issue an "Above Average", 
+//"Average" or "Below Average" message for scores over, at, or under 100 respectively.
+//Under 100: below average
+//100: average
+//Over 100: above average
+
+
+package ifExercises;
+
+import java.util.Scanner; //needed for scanner below 
+
+public class Ex4 {
+
+	public static void main(String[] args) {
+
+		Scanner key = new Scanner(System.in); //defining new scanner called key
+	
+				
+				//declare variables
+				
+				double userIqScore = 0.0; //declares variable and assigns it upfront
+				
+				
+				
+				//input
+				
+				System.out.println("Please enter an IQ Score: ");
+				userIqScore = key.nextDouble(); //enter input with keyboard
+				
+				
+				//process
+				 
+				if (userIqScore <0 || userIqScore >200) //first condition requires one condition OR other, identifies if either is invalid 
+				{
+					System.out.println("Error - no valid input"); //if that is true, either is invalid so says so
+				}
+				else if (userIqScore <=84) //first valid condition 
+				{
+					System.out.println("Below average."); //if true says this otherwise...
+				}
+				else if (userIqScore >84 && userIqScore <115) //goes to else if must equal 100 for this .. otherwise..
+				{
+					System.out.println("Average.");
+				}
+				else if (userIqScore >114) //final option, 
+				{
+					System.out.println("Above average!"); //says this 
+				}
+				//output
+				
+				key.close();
+	}
+
+}
