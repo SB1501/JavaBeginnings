@@ -1,0 +1,53 @@
+//UNCONDITIONAL LOOPS Ex7
+//Q. Output the sum and average of 5 students weights in kg. 
+
+package loopExercises;
+
+import java.util.Scanner;
+
+public class Ex9 {
+
+public static void main(String[] args) {	
+	
+		//declare variables //MUST BE KG AND GRAMS INPUTS EACH TIME running total inside loop, average outside loop. multiple kg by 1000 and add to total grams, divide by 5 for avg in 
+		
+		Scanner key = new Scanner(System.in);
+		
+		double sumWeightKg = 0.0,a;
+		double sumWeightGram = 0.0, b;
+		double outputTotal = 0.0;
+		double outputAverage = 0.0;
+		
+		//process
+		
+		for (double i = 0.0; i<5; i++)
+		{
+			System.out.println("Please enter a Student Weight KG: "); //example total 300 - 50 each
+			a = key.nextDouble();
+			sumWeightKg+=a;
+			System.out.println("Please enter a Student Weight Grams: "); //example total 1910 - 382 each
+			b = key.nextDouble();
+			sumWeightGram+=b;
+		}
+		
+		//outputs 
+		//totalkg 300  total g 1920 
+		
+		outputTotal = (sumWeightKg + (sumWeightGram/1000)); //converts the 1920 grams into kg - could have been other way around if answer needed grams
+		outputAverage = (outputTotal/5);
+				
+		System.out.println("Students Combined Total Weights in KG are: " +outputTotal +"kg.");
+		System.out.println("Students Combined Average Weights in KG are: " +outputAverage +"kg.");
+		
+		outputTotal = (outputTotal*1000); //multiply by 1000 for gram value 
+		outputAverage = outputAverage*1000; //multiply by 1000 for gram value 
+		
+		System.out.println("Students Combined Total Weights in GRAMS are: " +outputTotal +"grams.");
+		System.out.println("Students Combined Average Weights in GRAMS are: " +outputAverage +"grams.");
+		
+		key.close(); //at the end of main
+
+	}
+
+}
+
