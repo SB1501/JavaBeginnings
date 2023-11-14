@@ -1,0 +1,45 @@
+//Write a program which reads two integers, divides the second integer into the first and 
+//outputs the result as follows: For example, if the input is: 10, 3,  The output should 
+//be: 10 divided by 3 equals 3, remainder 1
+
+
+package introexercises;
+
+import java.util.Scanner; //needed for key scanner below
+
+public class Ex5 {
+
+	public static void main(String[] args) {
+
+		Scanner key = new Scanner(System.in); //defining scanner called key 
+		
+		//declare variables
+				
+		int numberOne = 0; //declared and initialised up front
+		int numberTwo = 0;
+		int dividingNumber = 0;
+		int answer = 0;
+		
+		//input
+		
+		System.out.print("Please give me a number one: ");
+		numberOne = key.nextInt(); //detects input, uses data type as dot next bit
+		
+		System.out.print("Please give me a number two: ");
+		numberTwo = key.nextInt();
+		
+		//process
+		
+		dividingNumber = numberTwo; //assigns value to dividing number as per Q 
+		
+		answer = numberOne % dividingNumber; //assigns answer to the result sum of the Q 
+		
+		//output 
+		
+		System.out.print("The answer is: " +answer);
+		
+		key.close(); //at the end of main
+		
+	}
+
+}
