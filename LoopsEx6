@@ -1,0 +1,47 @@
+//UNCONDITIONAL LOOPS Ex6
+//Q. Output the sum and average of set of N integer numbers (user will input the amount of numbers to be input).
+
+package loopExercises;
+
+import java.util.Scanner; //for scanner input
+
+
+public class Ex6 {
+
+	public static void main(String[] args) {
+
+		
+		//declare variables
+		
+		Scanner key = new Scanner(System.in); //for scanner input
+		
+		int nInteger = 0; //number of numbers to be used
+		int sumResult = 0,a; //initialised to zero also has value a assigned // why??? 
+		
+		//inputs
+		
+		System.out.println("Please input a number limit: ");
+		nInteger = key.nextInt();
+		
+		//process
+		
+		for (int i = 1;i<=nInteger;i++) //defining i for loop, as one; 
+										//Until it is the number of itmes of nInteger (amount of times for sum to happen as input by user);
+										//increment by one, do what is inside curly bracket below again one time
+		{ //what is in here is done for each loop iteration
+			System.out.println("Enter the number: "); //takes input each time for as many numbers as nInteger specifies 
+			a = key.nextInt(); //uses second name for int sumResult above 
+			sumResult+=a; //sumResult=sumResult+a adding the next input to the sumresult from last iteration each time to get total
+		}
+		
+		
+		//outputs
+	
+		System.out.println("The sum of given numbers is: " +sumResult); //total in sum result after loop ran nIntegern no. of times
+		System.out.println("The average of given numbers is: "+sumResult/nInteger); //divides sumResult by number of integers value to get average 
+		
+		key.close(); //at the end of main
+
+	}
+
+}
