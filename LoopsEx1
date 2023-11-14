@@ -1,0 +1,25 @@
+//UNCONDITIONAL LOOPS Ex1
+//Q: Output all the number between 1 and 1000
+
+package loopExercises;
+
+public class Ex1 {
+
+	public static void main(String[] args) {
+
+		
+		//declaring a variable for use in the loop can be done inside the loop itself 
+		
+		//process 
+		
+		for (int integer = 0; integer <1001; ++integer)  //(define int integer, start condition integer = 0; as long as integer < 1001; increment by one);
+		{
+		System.out.println(integer); //each loop, it does this. prints the now incremented by one until loop ends
+		}
+		
+		//outputs
+
+
+	}
+
+}
