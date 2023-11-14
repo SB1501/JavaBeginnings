@@ -1,0 +1,33 @@
+//Input a temperature in degrees fahrenheit. Convert to degrees celsius. (EX3)
+
+package introexercises;
+
+import java.util.Scanner; //needed for scanner for keyboard inout below
+
+public class Ex3 {
+
+	public static void main(String[] args) {
+
+		//declare variables
+		double tempFar = 0.0;
+		double tempCel = 0.0;
+		
+		Scanner key = new Scanner(System.in); //defining key for scanner below 
+		
+		//input
+		System.out.print("Please enter a Fahrenheit temperature value: ");
+		tempFar = key.nextDouble(); //detects input from keyboard 
+		
+		//process
+		tempCel = (tempFar - 32)*5/9; //formula for celcuis from farenheit is far minus 32, done in brackets to be done first then , multiplied by 5/9
+		
+		
+		//output
+
+			System.out.print("That temperature in Celcius is: " +tempCel);
+		
+			key.close(); //at the end of main
+
+	}
+
+}
