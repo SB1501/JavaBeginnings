@@ -1,0 +1,158 @@
+//Enter the price and quantity of 3 sale items.  Total up the cost of the 
+//items bought. Calculate a discount based on the category of the customer, applying 
+//the following rates:
+//Category of customer	Percentage discount %
+//A						10
+//B						7.5
+//C						5
+//D						0
+//Output a breakdown of the sale with the final cost due.
+//For the above problem customers may request delivery. Deliveries are charged by zone:-
+//Delivery Zone		Charge
+//1					£15.00
+//2,3,4				£10.75
+//5					£5.00
+//Output the delivery charge, if applicable, and the cost with delivery.
+
+
+
+package switchExercises;
+
+import java.util.Scanner; //for Scanner
+
+public class ex6 {
+
+	public static void main(String[] args) {
+
+		Scanner key = new Scanner(System.in); // Scanner for key input
+		
+		//declare variables
+		
+		double quantity1 = 0.0;  //quantities of item
+		double quantity2 = 0.0;
+		double quantity3 = 0.0;
+		double discount = 0.0;  //discount of item
+		double totalCost = 0.0;  // total cost at various stages 
+		char customerCategory = ' '; //for user to specify one of a few customer categories
+		int deliveryZone = 0; //delivery zone
+		double deliveryCharge = 0.0;
+		double saleItem1 = 0;  //where user defines price of item before sale calculations
+		double saleItem2 = 0;
+		double saleItem3 = 0;
+		boolean validCustCode = true;  //allows it to show or not show customer code calculations 
+		boolean validDzoneCode = true; //allows it to show delivery summary calculation or not. Saying error because it's in an IF and MIGHT not be used at all..
+		double discountedItem1 = 0.0; //price of items after discount applied
+		double discountedItem2 = 0.0;
+		double discountedItem3 = 0.0;
+		
+		//inputs
+		
+		System.out.println("Enter the price of a Sale Item 1: "); //item 1 price
+		saleItem1 = key.nextDouble(); 
+		
+		System.out.println("Enter the quantity of Sale Item 1: "); //item 1 quantity
+		quantity1 = key.nextDouble();
+		
+		System.out.println("Enter the price of a Sale Item 2: "); //item 2 price
+		saleItem2 = key.nextDouble(); 
+
+		System.out.println("Enter the quantity of Sale Item 2: "); //item 2 quantity
+		quantity2 = key.nextDouble();
+		
+		System.out.println("Enter the price of a Sale Item 3: "); //item 3 price
+		saleItem3 = key.nextDouble();
+
+		System.out.println("Enter the quantity of Sale Item 3: "); //item 3 quantity
+		quantity3 = key.nextDouble();
+		
+		System.out.println("Please enter a delivery zone code: \n\t Delivery Zone 1: £15 Charge \n\t Delivery Zone 2: £10.75 Charge \n\t Delivery Zone 3: £10.75 Charge \n\t Delivery Zone 4: £10.75 Charge \n\t Delivery Zone 5: £5.00 Charge \n "); //choose delivery zone code
+		deliveryZone = key.nextInt();
+		
+		totalCost = (saleItem1*quantity1) + (saleItem2*quantity3) + (saleItem3*quantity3); //total cost of all items multiplied by quantity input 
+		
+		System.out.println("Total cost of goods is: " + totalCost);  //uses the above defined total cost. 
+		
+		System.out.println("Please enter your Customer Category code to see your discounted total. A, B, C or D: ");  //input of customer category to choose discount in switch below
+		customerCategory = key.next().charAt(0);  //because nextChar() doesn't exist 
+		
+		switch (customerCategory) //takes 4 categories into account, generates discounted price for each item based on each discount category case.
+		{
+			case 'A': //case A 
+				discount = 0.1; //applies discount rate
+				discountedItem1 = saleItem1 - (saleItem1 * quantity1 * discount);
+				discountedItem2 = saleItem2 - (saleItem2 * quantity2 * discount);
+				discountedItem3 = saleItem3 - (saleItem3 * quantity3 * discount);
+				System.out.println("You are Category A, with a discount rate of 10%"); //confirms on screen which option chosen and what happened
+				break; //don't do next ones , move on to after switch
+			case 'B':
+				discount = 0.075;
+				discountedItem1 = saleItem1 - (saleItem1 * quantity1 * discount);
+				discountedItem2 = saleItem2 - (saleItem2 * quantity2 * discount);
+				discountedItem3 = saleItem3 - (saleItem3 * quantity3 * discount);
+				System.out.println("You are Category B, with a discount rate of 7.5%");
+				break;
+			case 'C':
+				discount = 0.05;
+				discountedItem1 = saleItem1 - (saleItem1 * quantity1 * discount);
+				discountedItem2 = saleItem2 - (saleItem2 * quantity2 * discount);
+				discountedItem3 = saleItem3 - (saleItem3 * quantity3 * discount);
+				System.out.println("You are Category C, with a discount rate of 5%");
+				break;
+			case 'D':
+				discount = 0.0;
+				discountedItem1 = saleItem1 - (saleItem1 * quantity1 * discount);
+				discountedItem2 = saleItem2 - (saleItem2 * quantity2 * discount);
+				discountedItem3 = saleItem3 - (saleItem3 * quantity3 * discount);
+				System.out.println("You are Category D, with a discount rate of 0%");
+				break;
+			default: //if none of the above is done or invalid then proceed with default 
+				validCustCode = false;
+				System.out.println("Please enter a valid Customer Category Code");
+				break;
+		}
+		
+		switch (deliveryZone) //now calculating based on delivery chosen at start
+		{
+			case 1: //case for each zone 
+				deliveryCharge = 15.00;
+				break;
+			case 2: //multiple zones with the same charge share one statement so multiple cases follow with nothing until the next
+			case 3:
+			case 4:
+				deliveryCharge = 10.75; //applies to 2, 3 and 4
+				break; //if this case happens, stop switch and move on to after switch 
+			case 5: 
+				deliveryCharge = 5.00; //assigns delivery charge for that case / zone 
+				break;
+			default:  //if none specified or invalid, this happens
+				validDzoneCode = false; //tells below not to show delivery section
+				System.out.println("No valid delivery zone input, delivery not required."); //message to user console
+				break; //end 
+		}
+		
+		if (validCustCode) //output for item breakdown including discount
+		{
+			System.out.println("\nYour Discounted Total Cost is: " + (totalCost-(totalCost*discount))); //summary total cost after discount applied 
+			System.out.println("\nBreakdown of Sale Items: \t");  //breakdown title
+			discountedItem1 = saleItem1*(1-discount); //defines final discounted value of item for below
+			System.out.println("\n\t Sale Item 1\t£" + saleItem1 + " ~ After reduction (if applicable) " + discountedItem1 + " | Quantity: " + quantity1 + " = " + (discountedItem1*quantity1));  // shows original price, then discounted price, then quantity and multiplier per item 
+			discountedItem2 = saleItem2*(1-discount);
+			System.out.println("\n\t Sale Item 2\t£" + saleItem2 + " ~ After reduction (if applicable) " + discountedItem2 + " | Quantity: " + quantity2 + " = " + (discountedItem2*quantity2));					
+			discountedItem3 = saleItem3*(1-discount);
+			System.out.println("\n\t Sale Item 3\t£" + saleItem3 + " ~ After reduction (if applicable) " + discountedItem3 + " | Quantity: " + quantity3 + " = " + (discountedItem3*quantity3));
+
+			
+		}
+		
+		if (validDzoneCode = true) //if a delivery zone was entered, add this to the end - shows delivery being added to final total cost 
+		
+			System.out.println("\n \t Delivery charge applies of " + deliveryCharge + ". \n \n GRAND TOTAL including DELIVERY OF: " + (totalCost + deliveryCharge));
+			else 
+				System.out.println("GRAND TOTAL OF: " +totalCost); //if no validDcodeZone then just give total as it was alongside 'grand total of'. 
+
+		
+		key.close(); //at the end of main	
+		
+	}
+
+}
