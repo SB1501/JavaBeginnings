@@ -1,0 +1,87 @@
+//	A lawn-mowing service needs a program to work out their pricing strategy. 
+//The lawn-mowing season lasts 20 weeks. The weekly fee mowing a lot under 400 m2 
+//is £25. The fee for a lot that is 400 m2 or more but under 600 m2 is £35 per week. 
+//The fee for a lot that is over 600 m2 is £50 per week. Prompt the user for the length 
+//and width of a lawn and then print the weekly mowing fee, as well as the 20-week seasonal fee.
+//Update the program to prompt the user on how the customer wants to pay (1) once, (2) twice, 
+//or (3) 20 times per year. If the user enters 1 for once, the fee for the season is simply the 
+//seasonal total. If the customer request two payments, each payment is half the seasonal total 
+//plus a £5 service charge. If the user requests 20 separate payments add a £3 service charge per 
+//week. Display the number of payments the customer must make, each payment amount and the total 
+//for the season.
+
+
+package ifExercises;
+
+import java.util.Scanner; //needed for scanner keyboard input
+
+public class Ex7 {
+	
+	public static void main(String[] args) {
+
+	Scanner key = new Scanner(System.in); //defining new scanner called key 
+	
+	//declare variables
+	
+	int seasonWeeks = 20; //declares and initialises them upfront
+	double lawnArea = 0.0;
+	double weeklyFee = 0.0;
+	double totalFee = 0.0;
+	double lawnWidth = 0.0;
+	double lawnLength = 0.0;
+	int payPref = 0;
+	
+	
+	//input
+	
+	System.out.println("\t Please enter the width of your lawn: "); //enter each parameter as per Q 
+	lawnWidth = key.nextDouble(); 
+	
+	System.out.println("\t Please enter the length of your lawn: ");
+	lawnLength = key.nextDouble();
+	
+	System.out.println("\t \n How would you like to pay? \n \t 1 = Once \n \t 2 = Twice \n \t 3 = 20 Times Per Year");
+	payPref = key.nextInt();
+	
+	//process and output
+	
+	lawnArea = (lawnWidth*lawnLength); //works out lawn area and assigns variable
+	
+	if (lawnArea <400) //first scenario as per Q 
+	{
+		weeklyFee = 25; //statement if true inside curly brackets executed, ends with ;, skips rest else ifs if true
+	}
+	else if (lawnArea >=400 && lawnArea <600) //else if for each other statement if first isn't true 
+	{ 											//defines range with && 
+		weeklyFee = 35; //if so, defines fee 
+	}
+	else if (lawnArea >=600) //only other scenario is equal to or over 600
+	{
+		weeklyFee = 50; //therefore defines this 
+	}
+	
+	totalFee = (weeklyFee*seasonWeeks); //now works out by how many weeks defined above for season, 20 as per Q 
+	
+	if (payPref ==1) //each option for pay has an if 
+	{
+		System.out.println("Your total fee for the season is: " +totalFee+"0 GBP."); //prints out total
+		System.out.println("One Payment Required of: " +totalFee +"0 GBP."); //prints out number of payments and each
+	}
+	else if (payPref ==2) //after first {statement block;}, checks next value. must be one of these three
+	{
+		System.out.println("Your total fee for the season is: " +totalFee +"0 GBP.");
+		totalFee = (totalFee+(2*5))/2;
+		System.out.println("Two Payments Required of: " +totalFee+ "0 GBP, including two service charges of £5");
+	}
+	else if (payPref ==3)
+	{
+		System.out.println("Your total fee for the season is: " +totalFee+"0 GBP.");
+		totalFee = (totalFee+(3*20))/20;
+		System.out.println("Twenty Payments Required of: " +totalFee+ "0 GBP, including a weekly service charge of £3");
+	}
+	
+	key.close();
+	
+	}
+	
+}
