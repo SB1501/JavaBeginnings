@@ -1,0 +1,47 @@
+//Write a program to take a person’s name, their age, 
+//the current year and a year in the future.  Output what 
+// age the person will be in that year. (EX1) 
+
+package introexercises;
+
+import java.util.Scanner; //imported BEFORE method main for INPUT from keyboard
+
+public class Ex1 {
+
+	public static void main(String[] args) 
+	{
+		
+		//declare variables
+		Scanner key = new Scanner(System.in); //creating a scanner for input that follows 
+		String name = ""; 
+		int age = 0;
+		int currentYear = 0;
+		int futureYear = 0;
+		int futureAge = 0;
+		
+		//inputs
+		System.out.print("\n\t Please enter your name: ");
+		name = key.nextLine(); //picks up scanner and uses next then type
+		
+		System.out.print("\n\t Please enter your age: ");
+		age = key.nextInt();
+		
+		System.out.print("\n\t Please enter current year: ");
+		currentYear = key.nextInt();
+
+		System.out.print("\n\t Please enter a year in the future: ");
+		futureYear = key.nextInt();
+		
+		//processes
+			//brackets to work that bit out first
+		futureAge = (futureYear - currentYear) + age; 
+		
+		//outputs 
+		System.out.print("\n\tHello " + name + ", it is the year " + currentYear + ". ");
+		System.out.print("You are currently " + age + ". In " + futureYear + "\n\tyou will be: " + futureAge);
+		
+		key.close(); //at the end of main
+
+	}
+
+}
