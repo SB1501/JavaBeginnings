@@ -1,0 +1,75 @@
+//5.	Write a program that prompts an employee for hourly rate of pay and hours worked. 
+//Compute the gross pay (hours times rate), tax and net pay (gross minus tax). Tax is computed 
+//as a percentage of gross pay based on the following:
+//Gross Pay		Tax %
+//Up to and including £300	 	 10
+//£300.01 and up		 12
+//Modify the above using the following tax percentage ranges:
+// Gross Pay			Tax %
+// £0 to £300		 	10
+//£300.01 to £400.00	 12
+//£400.01 to £500.00	 15
+//£500.01 and over		 20
+
+
+package ifExercises;
+
+import java.util.Scanner; //needed for scanner below 
+
+public class Ex5 extends Ex4 {
+
+	public static void main(String[] args) {
+
+		Scanner key = new Scanner(System.in); //defines a new scanner called key
+		
+		//declare variables
+		
+		double hourlyRate = 0; //declared and initialised upfront
+		double hoursWorked = 0;
+		double grossPay = 0;
+		double tax = 0;
+		double netPay = 0;		
+		
+		//inputs
+		
+		System.out.println("\t\n Please enter your hourly rate: ");
+		hourlyRate = key.nextDouble(); //keyboard input 
+		
+		System.out.println("\t\n Please enter your hours worked: ");
+		hoursWorked = key.nextDouble();
+		
+		//process
+		
+		grossPay = (hourlyRate * hoursWorked);
+		
+		if (grossPay <=300.00)  //first tax rate as per Q 
+		{
+			tax = 0.1; //assigns percentage to multiply later. first right one is used, skips else ifs
+		}
+		else if (grossPay >=300.01 && grossPay <=400)  //else if for each next band 
+		{
+			tax = 0.12;
+		}
+		else if (grossPay >=400.01 && grossPay <=500)
+		{
+			tax = 0.15;
+		}
+		else if (grossPay >500)
+		{
+			tax = 0.2;
+		}
+		
+		netPay = grossPay - (tax * grossPay); //does sum 
+				
+		
+		
+		//outputs
+		
+		System.out.println("Your Gross Pay is: " + grossPay);
+		System.out.println("Your Tax Rate is: " + tax);
+		System.out.println("Your Net Pay is: " + netPay);
+		
+		key.close();
+	}
+
+}
