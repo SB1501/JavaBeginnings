@@ -1,0 +1,25 @@
+//UNCONDITIONAL LOOPS Ex5
+//Q. Convert Pounds to Dollars where £1.0 = $1.54 for £1 to £10 in steps of 50p. 
+
+package loopExercises;
+
+public class Ex5 {
+
+	public static void main(String[] args) {
+
+		double dollarValue = 1.54;
+		double convertedValue = 0.0;
+		
+		
+		
+			for (double poundValue = 0.50; poundValue <=10.00; poundValue++ ) //loop. poundValue set to 1.0, then from 1.0 until 10.00, increment by 1
+			{
+				System.out.println("£:" + poundValue); //outputs the pound value in 0.50 intervals 
+				convertedValue = (dollarValue * poundValue); //multiplies pound value by dollar for conversion
+				System.out.println("$:" +convertedValue); //outputs the dollar value once converted for each 0.50 pound value 
+			}
+			
+			
+	}
+
+}
