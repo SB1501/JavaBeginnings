@@ -1,0 +1,55 @@
+// A mobile phone contract allows the user 250 minutes and 500 text messages a month.  
+// After the allowance has been used the rates charged are £0.25 per minute and £0.15 
+// per text.  Calculate the bill for a user who has used 412 minutes and 698 texts in a month.  
+//Output the details in the form an itemised bill.
+
+
+package introexercises;
+
+public class Ex7 extends Ex6 {
+
+	public static void main(String[] args) {
+
+		//declare variables
+		
+		double totalMinutes;
+		double totalTexts;
+		double freeMinutes = 250;
+		double freeTexts = 500;
+		double minuteChargeRate = 0.25;
+		double textChargeRate = 0.15;
+		double chargeableMinutes;
+		double chargeableTexts;
+		double totalCostOfMinutes;
+		double totalCostOfTexts;
+		double grandTotal;
+		
+		
+		//inputs
+		
+		totalMinutes = 412;
+		totalTexts = 698;
+				
+		//process
+			//calculate chargeable amount 
+			chargeableMinutes = (totalMinutes - freeMinutes);
+			chargeableTexts = (totalTexts - freeTexts);
+			
+			//apply the charge to chargeable amounts
+			totalCostOfMinutes = chargeableMinutes * minuteChargeRate;
+			totalCostOfTexts = chargeableTexts * textChargeRate;
+			grandTotal = totalCostOfMinutes + totalCostOfTexts;
+		
+		//outputs
+		
+			System.out.print("========= PHONE BILL =========\n");
+			System.out.print("\n This month you had a total of " + totalMinutes + " call minutes.\n Deduct free minutes of " + freeMinutes + " leaving " + chargeableMinutes + " charged at a cost of " + minuteChargeRate + "\n coming to a total charge of " + totalCostOfMinutes + ".\n");
+			System.out.print("\n This month you had a total of " + totalTexts + " text messages.\n Deduct free texts of " + freeTexts + " leaving " + chargeableTexts + " charged at a cost of " + textChargeRate + "\n coming to a total charge of " + totalCostOfTexts + ".\n");
+			System.out.print("\n Your grand total for this month is: " + grandTotal + ".");
+			System.out.print("\n\n\n ====== THANK YOU FOR YOUR LOYALTY =====\n");
+
+			
+
+	}
+
+}
