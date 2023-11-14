@@ -1,0 +1,51 @@
+//Find the Surface Area and Volume of a Cone for a given radius and height. (EX4) 
+
+
+package introexercises;
+
+import java.util.Scanner; //needed for keyboard input below
+
+public class Ex4 {
+
+	public static void main(String[] args) {
+
+		Scanner key = new Scanner(System.in);
+		
+		//declare variables
+		
+		double coneSurfaceArea = 0.0; //declared and initialised at once
+		double coneVolume = 0.0;
+		double radius = 0.0;
+		double height = 0.0;
+		double slantHeight = 0.0;
+		
+		
+		//input
+		System.out.print("Please enter a radius: ");
+		radius = key.nextDouble(); //scanner key takes input from keyboard
+	
+		System.out.print("Please enter a height: ");
+		height = key.nextDouble();
+		
+		//process 
+			
+			//calculate slant height first
+			slantHeight = Math.sqrt(radius * radius + height * height); 
+		
+			//surface area calculation
+			coneSurfaceArea = (Math.PI * radius * radius) + (Math.PI * radius * slantHeight);
+			
+			//calculate volume 
+			coneVolume = (Math.PI * radius * radius * height)/3;
+		
+				
+		//output 
+			
+			System.out.print("The surface area of your cone is: " + coneSurfaceArea);
+			System.out.print("The volume of your cone is: " + coneVolume);
+
+			key.close();
+	}
+
+
+}
