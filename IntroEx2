@@ -1,0 +1,53 @@
+//Input the length, breadth and height of a cuboid.  Output the 
+//perimeter, surface area and volume. (EX2) 
+
+
+package introexercises;
+
+import java.util.Scanner; //needed for keyboard input below 
+
+public class Ex2 {
+
+	public static void main(String[] args) {
+		
+		//declare variables 
+		double length = 0.0; //declared and initialised upfront 
+		double width = 0.0;
+		double height = 0.0;
+		double perimeter = 0.0;
+		double surfaceArea = 0.0;
+		double volume = 0.0;
+		
+		Scanner key = new Scanner(System.in); //allows you to enter info with keyboard 
+		
+		// inputs 
+		System.out.print("Enter the length in CM: ");
+		length = key.nextInt(); //input from keyboard uses key then next and type 
+		
+		System.out.print("Enter the width in CM: ");
+		width = key.nextInt();
+		
+		System.out.print("Enter the height in CM: ");
+		height = key.nextInt();
+		
+		//process
+			
+			//calculate volume
+			volume = (length * width) * height;
+			
+			//calculate perimeter 
+			perimeter = 2*(height+width+length);
+		
+			//calculate surface area
+			surfaceArea = ((height*length)*2)+((width*height)*2)+((length*width)*2);
+		
+		//outputs 
+			System.out.print(" The volume of the cuboid is: " + volume);
+			System.out.print("\n The perimeter of the cuboid is: " + perimeter);
+			System.out.print("\n The surface area of the cuboid is: " + surfaceArea);
+	
+			key.close(); //at the end of main
+
+	}
+
+}
