@@ -1,0 +1,96 @@
+//UNCONDITIONAL LOOPS Ex10
+//Q. Write a program that displays a menu of five items in a chip shop (same as If Exercise). Prompt the user to choose 
+//an item using the numbers (1, 2, 3, 4 or 5) that corresponds to an item or to enter 0 to quit the application. After 
+//the user makes the first selection, if the choice is 0, display a bill of £0. Otherwise display the menu again. The user 
+//should respond to this prompt with another item number to order or 0 to quit. If the user types 0, display the cost of the single requested item. If the user types 1, 2, 3, 4 or 5, add the cost of the second to the first and then display the menu a third time. If the user types 0 to quit, display the total cost of the first two items; otherwise, display the total for all three selections.
+
+package loopExercises;
+
+import java.util.Scanner; //importing what's needed for input Scanner
+
+public class Ex10 {
+
+	public static void main(String[] args) {
+
+	Scanner key = new Scanner(System.in); //defining scanner called key
+		
+		//declare variables
+			
+		double ordertotal = 0.0;
+		double paymentNote = 0.0;
+		int choice = 0;
+		boolean noteValid = false; //note: it's telling me because this is within an IF , I might not use it.. but it is used.
+		double changeDue = 0.0;
+				
+		
+		//INITIAL INPUT - SHOWS MENU 3 TIMES OTHERWISE STOPS. RUNNING TOTAL CALCULATED. 
+		
+
+			for (int i=0; i < 3; i++) //declared and initilised i as 0; while i is less than 3; iterate plus one. Limited to 3 choices. Everything below happens 3 times adding running total
+			{ //below is Menu output 
+			System.out.println("\t \n Please make up to 3 selections: \n \n \t [1] Cheeseburger: \t £4.99 \n \t [2] Pepsi: \t\t £2.00 \n \t [3] Chips: \t\t £2.50 \n \t [4] Mexican Beef: \t £5.00 \n \t [5] Pizza: \t\t £6.50 \n\n \t [0] Quit Application \n");
+			choice = key.nextInt(); //detects input each time 
+				switch (choice) //switch for each choice instead of an IF including 0 quit option and default below for error handling 
+					{
+					case 0:  //if they put in 0 to quit, quit at any time.
+						System.out.println("You chose to quit the application. Your order total is £0.00"); //message to say so 
+						i = 3; //tells next iteration i is 3, so stop!
+						ordertotal = 0.00; //sets ordertotal to 0 as said in question
+						break; //means if this case is true, stop here and resume AFTER switch entirely. 
+					case 1: //first menu item chosen..
+						System.out.println("You have selected Cheeseburger: £4.99"); //note to confirm to user 
+						ordertotal +=4.99; //adds 4.99 to ordertotal.. 
+						break; //goes to end of switch, then next iteration.. 
+					case 2:
+						System.out.println("You have selected Pepsi: £2.00");
+						ordertotal +=2.00;
+						break;
+					case 3:
+						System.out.println("You have selected Chips: £2.50");
+						ordertotal +=2.50;
+						break;
+					case 4:
+						System.out.println("You have selected Mexican Beef: £5.00");
+						ordertotal +=5.00;
+						break;
+					case 5:
+						System.out.println("You have selected Pizza: £6.50");
+						ordertotal +=6.50;
+						break;
+					default: //if not 0, 1,2,3,4,5 then any other input is invalid.
+						ordertotal = 0.00; //set order total to 0
+						System.out.println("Invalid Selection! Please try again from scratch. Order Total: " +ordertotal); //tells user invalid 
+						break; //stops switch and moves on to what comes next 
+					
+					}
+			
+			}
+
+		//ORDER DONE - HANDLES PAYMENT:
+		
+			if (ordertotal != 0.0) //only does payment below if the total was not set to 0.00 (by choosing 0 to quit or by entering invalid option, skips to end of if)
+			{
+			System.out.println("Your order total is: " +ordertotal + "\n"); //prints ordertotal amount 
+			System.out.println("Please enter your Payment Note (£5, £10 or £20 accepted):"); //tells you valid input options for note payment
+			paymentNote = key.nextDouble(); //input for note type 
+				if (paymentNote ==5 || paymentNote ==10 || paymentNote ==20) //specifies 3 valid values.. 5, 10, 20 
+				{
+					noteValid = true; //sets notevalid to true. 
+					changeDue = (paymentNote - ordertotal); //takes that note value from price defined above 
+					System.out.printf("\t Payment valid. Your change is: %.2f  GBP.", changeDue); //prints change due 
+				}
+				else  
+					{
+					noteValid = false; //if invalid entered in if above, goes to this else. States error. 
+					System.out.println("Payment Note not valid. Please try again.");
+					}
+			}
+			else  //if order total is 0.0 this is executed, tells user no payment needed bc they quit, made an invalid choice or entered invalid note. 
+				{
+				System.out.println("No payment necessary.");
+				}
+		key.close();
+		}
+	}
+
+
