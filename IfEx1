@@ -1,0 +1,54 @@
+//Write a program that prompts the user for a Current account balance and a Savings 
+//account balance. Display the message "Current account balance is low" if the current account 
+//balance is less than £10. Display the Message "Savings Account Balance is low" if the Savings 
+//Account balance is less than £100.
+//Modify the program above to display an additional message, "Both accounts are dangerously low" 
+//if both fall below the specified limits.
+
+
+package ifExercises;
+
+import java.util.Scanner; //needed for keyboard input below 
+
+public class Ex1 {
+	
+	public static void main(String[] args) {
+
+		Scanner key = new Scanner(System.in); //defines scanner called key
+		
+		
+		//declare variables
+		
+		double currentAccountBalance = 0.0; //declared and initialised upfront
+		double savingsAccountBalance = 0.0;
+		
+		
+		//inputs
+		
+		System.out.println("Please enter your Current Account balance: ");
+		currentAccountBalance = key.nextDouble(); //input expected from keyboard 
+
+		System.out.println("Please anter your Savings Account balance: ");
+		savingsAccountBalance = key.nextDouble();
+		
+		
+		//process AND outputs (due to if) 
+		
+		if (currentAccountBalance <10 && savingsAccountBalance <100)  //uses %% for BOTH to be true
+		{
+			System.out.println("Both accounts are dangerously low!"); //if condition in (), then {} for true, can have multiple statements ended ; 
+		}
+		else  //if above condition is NOT true, then moves to else. After curly bracket, opens NEW one } else { 
+		{
+			if (currentAccountBalance <10) //new If inside for if initial condition NOT true. 
+				System.out.println("Your current account balance is low"); //if this if is true, say this
+			if (savingsAccountBalance <100) //if it is also applicable, say this too 
+				System.out.println("Your savings account balance is low");
+						
+		}
+		
+		key.close();
+		
+	}
+
+}
