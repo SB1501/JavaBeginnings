@@ -1,0 +1,46 @@
+//10.	When a company’s employee retires, they will be entitled to an annual pension of 
+//one fiftieth of their current annual salary for each complete year’s service with the 
+//company.  Write a program into which an employee can type their current annual salary 
+//and the number of complete years they have served with the company.  The program should 
+//inform them what their annual pension should be.
+
+package introexercises;
+
+import java.util.Scanner; //needed for keyboard input scanner below 
+
+public class Ex10 {
+
+	public static void main(String[] args) {
+
+		Scanner key = new Scanner(System.in);
+		
+		//declare variables
+		
+		double annualPension = 0.0; //declare and initialise with zero values
+		double currentAnnualSalary = 0.0;
+		double completeYearsOfService = 0.0;
+		double oneFifteenth = 0.0;
+		
+		//input
+		
+		System.out.print("\n Please enter your current annual salary: ");
+		currentAnnualSalary = key.nextDouble(); //scanner for keyboard input
+		
+		System.out.print("\n Please enter your years of service, complete years only: ");
+		completeYearsOfService = key.nextInt();
+		
+		//process
+		
+		oneFifteenth = (currentAnnualSalary*0.06666666666); //works out one fifteenth 
+		
+		annualPension = completeYearsOfService*oneFifteenth; //multiplies one fifteenth by number of complete years of service
+		
+		//output 
+		
+		System.out.print("\n Your annual pension entitlement is: " + annualPension);
+		
+		key.close(); //at the end of main
+				
+	}
+
+}
