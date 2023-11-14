@@ -1,0 +1,52 @@
+// Write a program which reads a person’s income for a year and his total tax allowance.  
+//Assuming all his taxable income is to be taxed at a standard rate of 20%, the program 
+//should print a tax bill, ie, total income, tax free allowance, tax paid and net pay.
+
+package introexercises;
+
+import java.util.Scanner;
+
+public class Ex9 extends Ex8 {
+
+	public static void main(String[] args) {
+		
+		Scanner key = new Scanner(System.in);
+		
+		//define parameters
+		
+		double personalAnnualIncome = 0.0; //declaring various variables 
+		double taxFreeAllowance = 0.0; //and initialising them 
+		double taxableIncome = 0.0;
+		double taxRate = 0.2;
+		double taxPayable = 0.0;
+		double netIncome = 0.0;
+		
+		
+		//inputs
+		
+		System.out.print("Please enter your annual income: ");
+		personalAnnualIncome = key.nextDouble(); //input 
+		
+		System.out.print("Please enter your tax free allowance for the year: ");
+		taxFreeAllowance = key.nextDouble();	//input 
+		
+		
+		//process
+		
+		taxableIncome = personalAnnualIncome - taxFreeAllowance; // takes tax free allowance away from personal income, leaving taxable income 
+		taxPayable = (taxableIncome * taxRate); //applying taxable income to the tax rate as the tax payable 
+		netIncome = personalAnnualIncome - taxPayable; //calculating net income by taking away taxPayable from personalAnnualIncome. 
+		
+		
+		//outputs
+
+		System.out.print("Your total income for the year was: " + personalAnnualIncome +",\n ");  //printing various things to show calculation 
+		System.out.print("With a Tax-Free Allowance of " + taxFreeAllowance + ".\n");
+		System.out.print("Resulting in "+taxPayable+" to pay.\n");
+		System.out.print("This means your net income for the year is: " + netIncome + "!");
+		
+		key.close();
+	}
+	
+
+}
