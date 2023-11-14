@@ -1,0 +1,94 @@
+//2.	Write a program for a furniture company; the program determines the price of a table. Ask the user to choose: 
+//•	1 for pine
+//•	2 for oak
+//•	3 for mahogany
+//The output is the name of the wood chosen as well as the price of the table. 
+//Pine tables cost £300, 
+//oak tables cost £225 
+//mahogany tables cost £310. 
+//If the user enters an invalid wood code, set the price to 0.
+//Add a prompt to the application above to ask the user to specify a (1) large or (2) a small table. 
+//Add £35 to the price of any large table.
+
+
+package ifExercises;
+
+import java.util.Scanner; //needed for Scanner below
+
+public class Ex2 extends Ex1 {
+	
+	public static void main(String[] args) {
+		
+		Scanner key = new Scanner(System.in); //new Scanner called key 
+
+		//declare variables
+		
+		double tablePrice = 0.0; //declared and initialised with data from Q or 0
+		int tableChosen = 0;
+		int typePine = 1;
+		int typeOak = 2;
+		int typeMahog = 3;
+		double pricePine = 300;
+		double priceOak = 225;
+		double priceMahog = 310;
+		int sizeLarge = 1;
+		int sizeSmall = 2;
+		int sizeChosen = 0;
+		int largeCharge = 35;
+		
+		//inputs
+		
+		System.out.println("\n Please enter a wood code. 1 for Pine, 2 for Oak, 3 for Mahogany: ");
+		tableChosen = key.nextInt(); //expecting keyboard input
+		
+		System.out.println("\n Please select a size code. 1 for Large, 2 for Small ");
+		sizeChosen = key.nextInt();
+		
+		//process and outputs
+		
+		if (tableChosen ==0 && sizeChosen ==2) //scans for invalid table chosen as first criteria, size chosen 2 small chosen, otherwise next else if
+			{
+				tablePrice = 0;
+				System.out.println("Invalid selection! Table Price: "+ tablePrice); 
+			}
+		else if (tableChosen ==1 && sizeChosen ==2) //first valid choice, option 1 AND small size as Q says is 2 
+				{tablePrice = pricePine; //table chosen is assigned to 1 pine, size above is set to 2 small 
+				System.out.println("Pine Table Small Size, Price: " +tablePrice);
+				}
+		else if (tableChosen ==2 && sizeChosen ==2) //next option, table 2 AND size small
+				{tablePrice = priceOak; //oak price assigned
+				System.out.println("Oak Table Small Size, Price: " +tablePrice);
+				}
+		else if (tableChosen ==3 && sizeChosen ==2) //same but for option 3 AND size small
+				{tablePrice = priceMahog; //assigns price 
+				System.out.println("Mahogany Table Small Size, Price: " +tablePrice);
+				}
+		
+		//modification for size 1 large 
+		
+		if (tableChosen ==0 && sizeChosen ==1) // if 0 tableChosen then invalid, if not small size 2 chosen, large size 1 is chosen. table choice above selected.
+		{
+			tablePrice = 0; //if invalid, 0 for price 
+			System.out.println("Invalid selection! Table Price: "+ tablePrice); //and this output
+		}
+	else if (tableChosen ==1 && sizeChosen ==1) //or pine option 1 and size 1 ...
+			{tablePrice = (pricePine+largeCharge); //pine price but adds large charge since this section is for large pricing for each option
+			System.out.println("Pine Table Large Size, Price: " +tablePrice);
+			}
+	else if (tableChosen ==2 && sizeChosen ==1)
+			{tablePrice = (priceOak+largeCharge);
+			System.out.println("Oak Table Large Size, Price: " +tablePrice);
+			}
+	else if (tableChosen ==3 && sizeChosen ==1)
+			{tablePrice = (priceMahog+largeCharge);
+			System.out.println("Mahogany Table Large Size, Price: " +tablePrice);
+			}
+	
+		key.close();
+	
+		}
+	
+		
+		
+	}
+
