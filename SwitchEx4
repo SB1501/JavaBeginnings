@@ -1,0 +1,82 @@
+//Write a program which prompts the user to input an integer value for the 
+//Month (1-12).  Using a switch statement, print out the month name (January, February, 
+//etc...) and how many days are in the month. If the integer value does not represent 
+//a valid month (1-12), the program should print out an error message “Invalid month: 
+//xx” (where xx is the value entered). 
+
+package switchExercises;
+
+import java.util.Scanner; //for Scanner 
+
+public class ex4 extends ex3 {
+
+	public static void main(String[] args) {
+
+		Scanner key = new Scanner(System.in); //new scanner called key 
+		
+		
+		//declare variables
+		
+		int inputValue = 0;
+		
+		
+		//inputs
+		
+		System.out.println("Please enter a month number from 1 to 12: ");
+		inputValue = key.nextInt();
+		
+		
+		//process and outputs
+		
+		switch (inputValue)
+		{
+		case 1: //each case is the input of inputValue otherwise goes to next 
+			System.out.println("January - 30 days"); //if true, this is what is shown on console
+			break; //if this is true, stop here and go to what follows the switch
+		case 2:
+			System.out.println("February - 28/29 days");
+			break;
+		case 3:
+			System.out.println("March - 31 days");
+			break;
+		case 4:
+			System.out.println("April - 30 days");
+			break;
+		case 5:
+			System.out.println("May - 31 days");
+			break;
+		case 6:
+			System.out.println("June - 30 days");
+			break;
+		case 7:
+			System.out.println("July - 31 days");
+			break;
+		case 8:
+			System.out.println("August - 31 days");
+			break;
+		case 9:
+			System.out.println("September - 30 days");
+			break;
+		case 10:
+			System.out.println("October - 31 days");
+			break;
+		case 11:
+			System.out.println("November - 30 days");
+			break;
+		case 12:
+			System.out.println("December - 31 days");
+			break;
+		default: //if none of the above entered, this 
+			System.out.println("Invalid month: "+inputValue); //error message mentions what was input 
+			break;
+		
+		}
+		
+		
+		//outputs
+		
+		key.close(); //at the end of main	
+		
+	}
+
+}
