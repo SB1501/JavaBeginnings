@@ -1,0 +1,19 @@
+//UNCONDITIONAL LOOPS Ex4
+//Q. Output to screen the multiples of 5 between 50 and 10. 
+
+package loopExercises;
+
+public class Ex4 {
+
+	public static void main(String[] args) {
+		
+		for (int i = 10; i <51; i++ ) //loop. integer i set to 10, then from 10 until 50, increment by 1
+		{		
+			if (i % 5 == 0)			//cuts down the list above incrementing in 1, by only allowing multiples of 5 through 
+			System.out.println(i); //prints list 
+		}
+		
+
+	}
+
+}
