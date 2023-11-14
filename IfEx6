@@ -1,0 +1,77 @@
+//6.	Write a program that prompts the user for two integers and then prompts 
+//the user to enter an option. If the choice is 1, add the two integers.  If it 
+//is 2 subtract the second integer from the first and if it is 3, multiply the 
+//integers. Display the results of the arithmetic.
+//Modify the program so the user can enter 4 for divide. If the user enters 4 
+//and the second integer is 0, display an error message "Cannot divide by Zero"; 
+//otherwise divide the first number by the second and display the result.
+
+
+package ifExercises;
+
+import java.util.Scanner; //needed for input scanner 
+
+public class Ex6 {
+
+	public static void main(String[] args) {
+
+		Scanner key = new Scanner(System.in); //defines new scanner called key 
+		
+		//declare variables
+		
+		int integer1 = 0; //declares and initialises 
+		int integer2 = 0;
+		int optionSelected = 0;
+		double result = 0.0;
+		boolean error = false;  //needed to control if last bit needs to be done or not 
+		
+		//inputs
+		
+		System.out.println("Please enter integer 1: ");
+		integer1 = key.nextInt(); //scanner key expects input
+		
+		System.out.println("Please enter integer 2: ");
+		integer2 = key.nextInt();
+		
+		System.out.println("Please choose enter a number: \n \t Option 1 Add = 1 \n \t Option 2 Subtract = 2 \n \t Option 3 Multiply = 3 \n \t Option 4 Divide = 4");
+		optionSelected = key.nextInt();
+		
+		//process
+		
+		if (optionSelected ==1)  //first option MUST be equal (==) to 1 , if so ...
+		{
+			result = (integer1 + integer2); //...defines result with this sum..
+		}									// OTHERWISE, else if... closes {} else if (condition) then {own statements ending;}
+		else if (optionSelected ==2)
+		{
+			result = (integer1 - integer2);
+		}
+		else if (optionSelected ==3)
+		{
+			result = (integer1 * integer2);
+		}
+		else if (optionSelected ==4)
+		{
+			if (integer2 ==0) //if 0 entered as option, prevents dividing by 0 error, applicable to option 4 divide only
+			{
+				error = true; //sets error to true, therefore executes: 
+				System.out.println("Cannot divide by 0!");
+			}
+			else //only other option, if not 0 is to actually do divide divide 
+			{
+				result = (integer1 / integer2);
+			}
+		}
+		
+		
+		//outputs
+		
+		if (error ==false) //if above did NOT put error to true, it will still be false. Therefore says...
+		{
+			System.out.println("Result is: " + result);
+		}
+		
+		key.close();
+	}
+
+}
