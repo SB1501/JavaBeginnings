@@ -1,0 +1,47 @@
+//Create a program which takes in the day of the week (1 - Monday, 2 
+//- Tuesday, etc) and prints out whether the day is a weekday (1-5) 
+//or a weekend (6-7).
+
+package switchExercises;
+
+import java.util.Scanner; //for Scanner below 
+
+public class ex2 extends ex1 {
+
+	public static void main(String[] args) {
+
+		Scanner key = new Scanner(System.in); //new scanner called key
+		
+		//declare variables
+		
+		int dayDeterminer = 0; //declared and initialised
+				
+		//inputs
+		
+		System.out.println("\n \t Please select a day of the week by its number: \n\n\t\t [1] Monday \n\t\t [2] Tuesday \n\t\t [3] Wednesday \n\t\t [4] Thursday \n\t\t [5] Friday \n\t\t [6] Saturday \n\t\t [7] Sunday");
+		dayDeterminer = key.nextInt();
+		
+		//process
+		
+		switch (dayDeterminer) //value of this, input above, is looked up in the switch case number 
+		{
+		case 1: //multiple cases can correspond to the same statement(s)
+		case 2:
+		case 3:
+		case 4:
+		case 5:
+			System.out.println("This is a week day..");
+			break; //stop after this if one is true 
+		case 6:
+		case 7:
+			System.out.println("This is a weekend day!!! B-)");
+			break; //stop after this if one is true 
+		default: 
+			System.out.println("Please choose a week day number from the main menu and try again.");
+		}		
+		
+		key.close(); //at the end of main
+		
+	}
+
+}
