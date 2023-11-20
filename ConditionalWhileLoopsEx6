@@ -1,0 +1,83 @@
+//Q6. 6. Input name and module result for an unknown no of students (but more than 4).  Determine and print their module grade based on the following:-
+//
+//		/Result/		/Grade/
+//		Below 40		Referred
+//		40 –59			Pass
+//		60 – 74			Merit
+//		75 – 100		Distinction
+//	
+//Calculate and print the number of referrals, passes, merits, distinctions. A COUNT 
+//Calculate and print the percentage of referrals, passes, merits, distinctions. A PERCENTAGE
+//(Validate the entry of a students result to be a number between 0 and 100) Must be between 0 to 100. 
+
+
+package whileLoopExercises;
+
+import java.util.Scanner; //import Scanner
+
+public class Ex6 extends Ex5 {
+
+	public static void main(String[] args) {
+
+		Scanner key = new Scanner(System.in);
+		
+		//declare and initialise variables
+		
+		double studentGrade = 0.0; //grade is the main input which everything else is based on 
+		int totalReferredCount = 0, totalPassCount = 0, totalMeritCount = 0, totalDistinctionCount = 0, studentCount = 0; //counts for iteration tracking / output summary
+		double referredPercentage = 0.0, passPercentage = 0.0, meritPercentage = 0.0, distinctionPercentage = 0.0; //percentage for output summary
+		
+		//input and loops process
+		
+		do  //DO this block each time for while true condition
+		{
+		System.out.println("Enter the grade for the student here: ");  //enter grade 
+		studentGrade = key.nextDouble();
+		studentCount++; //increment number of times this has run for WHILE condition below 
+		
+			if (studentGrade >=0 && studentGrade <40)  //if statement categorises each studentGrade entered 
+				{
+				System.out.println("This students grade is REFERRED."); //gives feedback as per Q 
+				totalReferredCount++; //increments THIS category by one 
+				}	
+				else if (studentGrade >=40 && studentGrade <60)  //else ifs for each, inside own curly brackets, until last...
+					{
+					System.out.println("This students grade is PASS"); //..
+					totalPassCount++;
+					}
+				
+					else if (studentGrade >=60 && studentGrade <75) //..
+						{
+						System.out.println("This students grade is MERIT");
+						totalMeritCount++;
+						}
+						
+					 	else if (studentGrade >=75 && studentGrade <101) //..
+							{
+							System.out.println("This student grade is DISTINCTION, well done!");
+							totalDistinctionCount++;
+							}
+			
+					 		else //last IF with more than two options is just an else, NO curly brackets here, used to pick up invalid values
+					 			System.out.println("Invalid values entered! Grade can only be between 0-100");
+
+		} while (studentCount <= 3 && studentGrade >=0 && studentGrade <101); //the do WHILE loop always runs once, meaning the first instance is 1. Then 3 more at this stage to get the full 4 specified by Q
+																				// added 0 or above, or 100 max here, to break loop for invalid options entereed (Q said to validate)
+		
+		referredPercentage = (totalReferredCount / 4.0 *100.0); //Q specified only 4 students max. therefore, to get percentage of each category, divide total count of eat (added to each time the IF in the loop was followed) 
+		passPercentage = (totalPassCount / 4.0 *100.0); 			//divides it by 4, then times by 100 to get round percentage
+		meritPercentage = (totalMeritCount / 4.0 *100.0);			// MUST BE .0 after number as we are workingwith DOUBLE data type otherwise sum won't happen but error won't show 
+		distinctionPercentage = (totalDistinctionCount /4.0 *100.0);
+		
+		//output statements
+		
+		System.out.println("\n\n\t\t\tREFERRED\tPASS\tMERIT\tDISTINCTION\t\n"); //string formatting for nicer output format like a table 
+		System.out.printf("Total Number:\t\t%1d\t\t%1d\t%1d\t%1d\t\t\n", totalReferredCount, totalPassCount, totalMeritCount, totalDistinctionCount);
+		System.out.printf("Total Percentage:\t%3.2f\t\t%3.2f\t%3.2f\t%3.2f\t", referredPercentage, passPercentage, meritPercentage, distinctionPercentage);
+		
+		
+		key.close(); //close key inside main
+
+	}
+
+}
