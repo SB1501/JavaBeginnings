@@ -1,0 +1,46 @@
+//Q5.	Input the call duration of an unknown number of calls in a call centre in minutes and seconds and output:
+//(a)	Total duration of all calls in minutes and seconds
+//(b)	The average call duration in minutes and seconds
+
+
+package whileLoopExercises;
+
+import java.util.Scanner; //import Scanner
+
+public class Ex5 extends Ex4 {
+
+	public static void main(String[] args) {
+
+		Scanner key = new Scanner(System.in); //new Scanner called key
+		
+		int callDurationMins = 0, callDurationSecs = 0, callCount = 1; //declare and initialise variables, already 1 call as minimum is 1 with first run of loop
+		char answer = ' '; //needed for y/n input below
+		
+		do { //do THIS block each time
+			System.out.println("Enter the duration of your call MINUTES: ");
+			callDurationMins = key.nextInt();
+			System.out.println("Enter the duration of your call SECONDS: ");
+			callDurationSecs = key.nextInt();
+			System.out.println("Do you wish to log another call? (Y/N): ");
+			answer = key.next().charAt(0);
+			
+				if (answer == 'Y' || answer == 'y') 
+				{
+				callCount++;	
+				}
+				callDurationMins += callDurationMins;
+				callDurationSecs += callDurationSecs;
+				
+		} while (answer == 'Y' || answer == 'y'); //but only do that block WHILST this is true 
+		
+		
+		System.out.printf("\t\t\nThe total number of duration for all calls was: %3d minutes and %3d seconds.", callDurationMins, callDurationSecs);
+		callDurationMins = (callDurationMins/callCount);
+		callDurationSecs = (callDurationSecs/callCount);
+		System.out.printf("\t\t\nThe total average of duration for all calls was: %3d minutes and %3d seconds.", callDurationMins, callDurationSecs);
+		
+		key.close();
+		
+	}
+
+}
