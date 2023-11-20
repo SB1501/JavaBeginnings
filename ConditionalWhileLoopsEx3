@@ -1,0 +1,36 @@
+//Q3. Input of the height a ball is dropped from.  Assuming that on each bounce the height reached reduces by 5%, 
+//output the number of bounces that occur before the ball stops bouncing.  Line of code to reduce height variable 
+//inside loop, while greater than 0.1 
+
+package whileLoopExercises;
+
+import java.util.Scanner; //import Scanner
+
+public class Ex3 extends Ex2 {
+
+	public static void main(String[] args) {
+
+		Scanner key = new Scanner(System.in); //new Scanner called key 
+
+		int numberOfBounces = 0; 
+		double droppedFromHeight = 0.0, reductionMultiplier = 0.95; //initialise and declare variables 
+		
+		System.out.println("Please input the height the ball is dropped from in cm: ");
+		droppedFromHeight = key.nextDouble();   //e.g. 500cm 
+		
+		//multiply by 0.95 each time, bounce++
+		
+		do //do this 
+		{
+			numberOfBounces++; //add one to bounce count 
+			droppedFromHeight = droppedFromHeight*reductionMultiplier; //e.g. 500cm*0.95 = 475cm .. taking the new reduced droppedFromHeight each time
+		} while (droppedFromHeight >0.1); //only until dropped from height drops to 0.1 as Java double is never a true 0.0 then no more bounces to be counted / calculated
+
+		System.out.printf("Height dropped from was %3.2f cm", droppedFromHeight ); //output dropped from height, string formatting means placeholder for value. f for float, .2f for precision of 2 decimal places
+																					//above is redundant, and wrong, but shows precision in the answer to two decimal places
+		System.out.printf("\nNumber of bounces was %3d", numberOfBounces); //output number of bounces, again using string formatting placeholder, d for int 
+		
+		key.close(); //close key within main 
+	}
+
+}
