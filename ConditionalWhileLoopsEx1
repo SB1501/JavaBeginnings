@@ -1,0 +1,44 @@
+//Q1. Input an unknown number of integers.  Output the total and the average.  Terminate the series of numbers with -999 (this is not to be included in the calculations).
+
+
+package whileLoopExercises;
+
+import java.util.Scanner; //import Scanner
+
+public class Ex1 {
+
+	public static void main(String[] args) {
+
+		Scanner key = new Scanner(System.in); //new Scanner called key
+
+		int number = 0, sum = 0, count = 0; //declare variables and initialise
+		double average = 0.0;
+		
+		do  //do this (do while loop due to unknown amount to be entered)
+		{
+		System.out.println("\n\t Please enter a number:  \n\n\t\t To finish, enter '-999'"); //ask for a number 
+		number = key.nextInt(); //receive input
+		
+		if (number == -999) //if the number is -999 (breakout value in Q)  
+			{
+			 //do nothing 
+			}
+		else  //otherwise if anything except -999
+			{
+			sum = sum+number; //add the latest number input to the current sum 
+			count++; //increment count by +1 
+			average = (sum / count); //for average it's total sum/count of numbers entered so far 
+			}
+		} while (number != -999); //only do the above whilst the number is not -999 , if it is -999 EXIT / BREAK OUT OF LOOP
+		
+		System.out.println("\n\t Total: " + sum); //after loop done and exited, print total in SUM 
+		average = (double) sum / count; // average is sum divided by count of numbers entered, must (cast) to ensure sum / count answer can be stored as a double in average (already double)
+		System.out.println("\n\t Average: " + average); //average output 
+
+		key.close(); //closing Scanner key, last thing inside main 
+		}
+
+	}
+
+
+
