@@ -1,0 +1,33 @@
+//Q4. Roll a dice until the number six occurs. Output each result and count the number of times the dice is rolled. 
+
+package whileLoopExercises;
+
+import java.util.Scanner; //import Scanner
+
+public class Ex4 extends Ex3 {
+
+	public static void main(String[] args) {
+
+		Scanner key = new Scanner(System.in); //new Scanner called key
+		
+		int numberOfDiceRolls = 0; //stores number of times the dice was rolled
+		double diceResult = 0; //stores the result of what the dice lands on
+
+
+		do { //do this 
+			diceResult = (Math.random()*6+1); //generate a random number, but *6+1 to  keep it 1-6
+			diceResult = (Math.round(diceResult)); //round it off so it's not 5.30294 and just 5.00
+			numberOfDiceRolls++; //increment the number of times rolled for each loop iteration ran 
+			System.out.printf("Dice Number is %3.0f, number of rolls so far is %3d\n", diceResult, numberOfDiceRolls); //output where we're at for each iteration (count so far and number rolled using string formatting printf and right type letters, .0f for float to appear as integral number in output
+		} while (diceResult != 6); //only keep doing this until 6 is rolled, in other words, whilst it's not 6, keep trying until it is 6. Then exit loop. 
+		
+
+		System.out.printf("\n\tDice Number is: %3.0f. ", diceResult); //once exited, output the number is 6, and how many rolls it took
+		System.out.printf("\n\tNumber of rolls taken was %3d.", numberOfDiceRolls);
+		
+		
+		key.close(); //closing key inside main 
+
+	}
+
+}
