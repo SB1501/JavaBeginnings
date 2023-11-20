@@ -1,0 +1,44 @@
+//Q2. Rewrite the program in Exercise 1 to ask the user if they wish to enter another number (use Y or N) and terminate when the user enters N. 
+
+
+package whileLoopExercises;
+
+import java.util.Scanner; //import Scanner
+
+public class Ex2 extends Ex1 {
+
+	//Syntax:
+	/* do
+	{
+	       Block of code to be executed with each     <<THIS IS WHERE TO ASK EACH TIME AND DO CALCS FOR THAT ITERATION,
+	       iteration of the loop;
+	} while (condition);                              << THIS IS WHERE WE SPECIFY THE CONDITION NEEDED TO GO AGAIN */ 
+
+	
+	public static void main(String[] args) {
+
+		Scanner key = new Scanner(System.in); //new Scanner called key
+
+		int number = 0, sum = 0, count = 0; //declare variables and initialise as before
+		double average = 0.0;
+		char answer = ' '; //no default choice, this is needed for the Y/N input 
+	
+				do //do this
+				{    //block of what is to be ran every loop
+					System.out.println("Please enter a number: "); //ask for a number 
+					number = key.nextInt(); //receive input
+					System.out.println("Do you want to enter another number (Y/N)?: ");
+					answer = key.next().charAt(0); // receive input, but a char value 
+					sum = sum+number; //add the latest number input to the current sum 
+					count++; //increment count by +1 
+					average = (sum / count); //for average it's total sum/count of numbers entered so far 
+				} while (answer == 'Y' || answer == 'y'); //keep repeating the loop as long as the user keeps entering Y for yes, only then if not Y, break out, OR lower case y
+		
+				System.out.println("\n\t Total: " + sum); //after loop done and exited, print total in SUM 
+				average = (double) sum / count; // average is sum divided by count of numbers entered 
+				System.out.println("\n\t Average: " + average); //average output 		
+	
+		key.close(); //closing Scanner key, last thing inside main 
+		}
+
+	}
